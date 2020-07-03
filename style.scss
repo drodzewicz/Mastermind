@@ -1,0 +1,191 @@
+$main-font: Consolas, Helvetica, Arial, sans-serif;
+$circle-size: 3rem;
+$hint-circle-size: 1rem;
+
+// color palete
+$red-light: #f79071;
+$red-dark: #fa744f;
+$red-darker: #e45137;
+$blue-light: #16817a;
+$blue-dark: #006975;
+$blue-darker: #024249;
+
+.game-board-container{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+body {
+    font-family: $main-font;
+    font-size: 16px;
+    background-color: $red-light;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.3s all ease-in;
+}
+
+.login-container{
+    form{
+        margin-top: 4rem;
+        background-color: $red-dark;
+        padding: 1rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+        label{
+            margin-top: 1rem;
+            align-self: flex-start;
+        }
+        .input-number{
+            width: 15rem;
+        }
+    }
+ 
+}
+
+.btn{
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    margin: 1rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    color: rgb(23, 27, 39);
+    &:hover{
+        background: rgb(199, 196, 235);
+        color: black;
+    }
+    &:disabled{
+        background: rgb(199, 196, 235);
+        color: rgb(91, 91, 91);
+        cursor: auto;
+    }
+}
+
+
+
+.circle{
+    display: flex;
+    width: $circle-size;
+    height: $circle-size;
+    background: $blue-dark;
+    border-radius: 15rem;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    
+
+    font-weight: bold;
+    color: $blue-darker;
+    font-size: 1.6rem;
+    transition: all 0.1s ease-in;
+}
+
+
+.game-settings{
+    background: $red-dark;
+    border-radius: 1rem;
+    padding: 0.2rem 0.5rem;
+    margin: 1rem 0;
+}
+
+.input-number{
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.4rem;
+    width: 4rem;
+}
+
+.main-container{
+    background: $blue-light;
+    display: flex;
+
+    border-radius: 1rem;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+#color-palete{
+    max-width: 80vw;
+    flex-wrap: wrap;
+    &>*{
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+}
+
+.divider{
+    border: 1px solid $blue-darker;
+    display: flex;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+#game-board{
+    flex-direction: column;
+    #answer-col{
+        height: 100%;
+        width: auto;
+        margin: 1rem;
+
+        .circle-container{
+            display: flex;
+            flex-direction: row;
+
+            & > * {
+                border: 1.5px $blue-dark solid;
+            }
+        }
+
+        .guess-container{
+            display: flex;
+
+            .hint-container{
+                margin: 0.5rem 0.2rem;
+                width: 3rem;
+                height: 3rem;
+                background: $red-light;
+                border-radius: 0.3rem;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, $hint-circle-size+0.2rem);
+                grid-template-rows: repeat(2, auto);
+                justify-content: center;
+                align-items: center;
+                .circle{
+                    background: $red-dark;
+                    width: $hint-circle-size;
+                    margin: 0;
+                    height: $hint-circle-size;
+                }
+            }
+            
+        }
+
+        .guess-row{
+            display: flex;
+        flex-direction: row;
+        }
+       
+    }
+
+}
+

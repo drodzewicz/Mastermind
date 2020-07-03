@@ -134,7 +134,8 @@ body {
 }
 
 .divider{
-    border: 1px solid $blue-darker;
+    border: 0.5px solid $blue-darker;
+    background: $blue-darker;
     display: flex;
     width: 100%;
     margin: 1rem 0;

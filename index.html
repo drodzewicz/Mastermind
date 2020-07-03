@@ -8,7 +8,21 @@
 </head>
 <body>
     <div class="game-board-container">
-
+      <h2 id="game-title">Mastermind</h2>
+      <div class="game-settings">
+        <button id="newgame-btn" class="btn">new game</button>
+        <label for="dim">dim:</label>
+        <input type="text" id="dim" class="input-number" min="0" type="number" name="dim">
+        <label for="size">size:</label>
+        <input type="text" id="size" class="input-number" min="0" type="number" name="size">
+        <label for="max">max:</label>
+        <input type="text" id="max" class="input-number" min="0" type="number" name="dim">
+      </div>
+      <div id="game-board" class="main-container">
+        <div id="answer-col"></div>
+      </div>
+      <button id="delete-btn" class="btn">delete</button>
+      <div id="color-palete" class="main-container"></div>
     </div>
 </body>
 </html>

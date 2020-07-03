@@ -1,21 +1,19 @@
 import { colorHintCircles, getBrakePoints } from "./_helper.js";
 import { renderGameBoard, renderGameResult } from "./renderGame.js";
 
-import { bigBoard } from "./gameBoard.js";
 
 window.addEventListener("DOMContentLoaded", () => {
 
-  bigBoard();
 
   const inputSettings = document.querySelectorAll(".input-number");
   let allCircles;
   let allHintCircles;
 
-  const secretCode = [1, 3, 2, 0, 2];
+  let secretCode = [];
 
   let gameSettings = {
     size: 5,
-    max: 4,
+    max: 2,
     dim: 9
   };
 
@@ -25,6 +23,16 @@ window.addEventListener("DOMContentLoaded", () => {
     myPattern: []
   }
 
+  const generateRandomPattern = (size, dim) => {
+    let secretPatter = [],
+    counter = size;
+    
+    while(counter > 0){
+        secretPatter.push(Math.floor(Math.random() * dim));
+        counter --;
+    }
+    return secretPatter;
+  }
   const checkForWhite = (keyPattern, testingPattern) => {
     return testingPattern.reduce((acc, val) => {
       let indexOfFound = keyPattern.indexOf(val);
@@ -38,7 +46,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }, 0);
   }
-
   const checkForBlack = (keyPattern, testingPattern) => {
     return keyPattern.reduce((acc, value, index) => {
       return acc += testingPattern[index] === value ? 1 : 0;
@@ -74,8 +81,7 @@ window.addEventListener("DOMContentLoaded", () => {
         // color hint circles back to empty
         allHintCircles.forEach(circle => {
           circle.style.backgroundColor = "#fa744f";
-        })
-
+        });
       }
 
       // current circle border
@@ -143,7 +149,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   renderGameBoard(gameSettings, pickAColor);
   setNewGameValues();
-
+  secretCode = generateRandomPattern(gameSettings.size, gameSettings.dim);
 });
 
 

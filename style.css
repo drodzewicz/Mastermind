@@ -159,7 +159,8 @@ body {
 }
 
 .divider {
-  border: 1px solid #024249;
+  border: 0.5px solid #024249;
+  background: #024249;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

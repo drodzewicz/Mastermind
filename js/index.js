@@ -1,11 +1,7 @@
-import { colorHintCircles, getBrakePoints } from "./_helper.js";
-import { renderGameBoard, renderGameResult } from "./renderGame.js";
-
+import { colorHintCircles, getBrakePoints, checkForWhite, checkForBlack } from "./_helper.js";
+import { renderGameBoard, renderGameResult } from "./_renderGame.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-
-
-  const inputSettings = document.querySelectorAll(".input-number");
   let allCircles;
   let allHintCircles;
 
@@ -14,7 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let gameSettings = {
     size: 5,
     max: 2,
-    dim: 9
+    dim: 3
   };
 
   let gameVariables = {
@@ -33,24 +29,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     return secretPatter;
   }
-  const checkForWhite = (keyPattern, testingPattern) => {
-    return testingPattern.reduce((acc, val) => {
-      let indexOfFound = keyPattern.indexOf(val);
-      if (indexOfFound >= 0) {
-        keyPattern = keyPattern.filter((el, index) => {
-          return indexOfFound !== index;
-        })
-        return acc + 1;
-      } else {
-        return acc;
-      }
-    }, 0);
-  }
-  const checkForBlack = (keyPattern, testingPattern) => {
-    return keyPattern.reduce((acc, value, index) => {
-      return acc += testingPattern[index] === value ? 1 : 0;
-    }, 0);
-  }
   const checkMyPatter = () => {
     const white = checkForWhite(secretCode, gameVariables.myPattern);
     const black = checkForBlack(secretCode, gameVariables.myPattern);
@@ -64,9 +42,9 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     colorHintCircles({ white, black }, gameVariables.circleBrakePoints, gameSettings.max, gameSettings.size);
     renderGameResult({ gameOver, win, message: win ? "YOU WIN!" : "GAME OVER", secretCode });
-    // if (data.win) {
-    //   gameVariables.circleOrder = gameSettings.max * gameSettings.size;
-    // }
+    if (win) {
+      gameVariables.circleOrder = gameSettings.max * gameSettings.size;
+    }
     gameVariables.myPattern = [];
   }
   const pickAColor = (color, index) => {
@@ -128,12 +106,17 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
   const createNewGame = () => {
-    inputSettings.forEach(input => {
-      gameSettings[`${input.name}`] = Number(input.value);
+    // inputSettings.forEach(input => {
+    //   gameSettings[`${input.name}`] = Number(input.value);
+    // });
+    inputRangeSettings.forEach(input => {
+      const inputRange = input.querySelector("input");
+      gameSettings[`${inputRange.name}`] = Number(inputRange.value);
     });
-
     renderGameBoard(gameSettings, pickAColor);
     setNewGameValues();
+    secretCode = generateRandomPattern(gameSettings.size, gameSettings.dim);
+    // console.log(secretCode);
   }
 
   // NEW GAME BUTTON
@@ -144,12 +127,36 @@ window.addEventListener("DOMContentLoaded", () => {
   const deleteButton = document.querySelector("#delete-btn");
   deleteButton.addEventListener("click", removeColor);
 
-  inputSettings.forEach(input => {
-    input.value = gameSettings[`${input.name}`];
+  // SETTINGS BUTTON
+  const settingsButton = document.querySelector("#settings");
+  const settingsDrawer = document.querySelector(".settings-drawer");
+  const toggleSettingsOpen = () => {
+    if(settingsDrawer.classList.contains("open")){
+      settingsDrawer.classList.remove("open");
+    } else {
+      settingsDrawer.classList.add("open");
+    }
+  }
+  settingsButton.addEventListener("click", toggleSettingsOpen);
+
+  // // INPUT SETTINGS
+  // const inputSettings = document.querySelectorAll(".input-number");
+  // inputSettings.forEach(input => {
+  //   input.value = gameSettings[`${input.name}`];
+  // });
+
+  // INPUT RANGE SETTINGS
+  const inputRangeSettings = document.querySelectorAll(".input-range-wrapper");
+  inputRangeSettings.forEach(input => {
+    const labelSpan = input.querySelector("label>span");
+    const inputRange = input.querySelector("input");
+    inputRange.addEventListener("input", (e) => {
+      labelSpan.textContent = e.target.value;
+    });
+    labelSpan.textContent = gameSettings[`${inputRange.name}`];
+    inputRange.value = gameSettings[`${inputRange.name}`];
   });
   renderGameBoard(gameSettings, pickAColor);
   setNewGameValues();
   secretCode = generateRandomPattern(gameSettings.size, gameSettings.dim);
 });
-
-

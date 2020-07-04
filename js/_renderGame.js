@@ -1,4 +1,3 @@
-
 import { addCirclesToContainer, randomColor, showKeyPattern } from "./_helper.js";
 
 const clearGameBoard = () => {
@@ -15,7 +14,6 @@ const renderGameBoard = (gameConfig, pickColorFun) => {
   const answerColumn = document.querySelector("#answer-col");
   const colorPalete = document.querySelector("#color-palete");
 
-  // checking if endless mode is submited 
   let max = 1;
   if (gameConfig.max !== 0) {
     max = gameConfig.max;
@@ -88,5 +86,3 @@ const renderGameResult = ({ gameOver, win, message, secretCode }) => {
 }
 
 export { renderGameBoard, renderGameResult };
-
-

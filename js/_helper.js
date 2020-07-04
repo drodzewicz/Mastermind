@@ -51,12 +51,32 @@ const getBrakePoints = (max, size) => {
   }
   return brakePoints;
 }
+const checkForWhite = (keyPattern, testingPattern) => {
+  return testingPattern.reduce((acc, val) => {
+    let indexOfFound = keyPattern.indexOf(val);
+    if (indexOfFound >= 0) {
+      keyPattern = keyPattern.filter((el, index) => {
+        return indexOfFound !== index;
+      })
+      return acc + 1;
+    } else {
+      return acc;
+    }
+  }, 0);
+}
+const checkForBlack = (keyPattern, testingPattern) => {
+  return keyPattern.reduce((acc, value, index) => {
+    return acc += testingPattern[index] === value ? 1 : 0;
+  }, 0);
+}
 
 
 export {
   randomColor,
-  addCirclesToContainer,
-  showKeyPattern,
+  checkForWhite,
+  checkForBlack,
   getBrakePoints,
-  colorHintCircles
+  showKeyPattern,
+  colorHintCircles,
+  addCirclesToContainer
 };

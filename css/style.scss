@@ -98,12 +98,40 @@ body {
     transition: all 0.1s ease-in;
 }
 
-
 .game-settings{
     background: $red-dark;
     border-radius: 1rem;
     padding: 0.2rem 0.5rem;
     margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+
+    .btn-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    .settings-drawer{
+      display: flex;
+      flex-direction: column;
+      overflow-y: hidden;
+      transition: all 0.3s ease-in-out;
+      height: 0;
+      &.open {
+        height: 8rem;
+      }
+    }
+    .input-range-wrapper{
+      display: flex;
+      flex-direction: column;
+    }
+    .input-range {
+      cursor: grab;
+      &:active {
+        cursor: grabbing;
+      }
+    }
 }
 
 .input-number{

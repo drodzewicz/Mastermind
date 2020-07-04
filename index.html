@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Mastermind</title>
-    <link rel='stylesheet' href='./style.css' />
+    <link rel='stylesheet' href='./css/style.css' />
     <script type="module" src='./js/index.js'></script>
 </head>
 <body>
     <div class="game-board-container">
       <h2 id="game-title">Mastermind</h2>
       <div class="game-settings">
-        <button id="newgame-btn" class="btn">new game</button>
-        <label for="dim">dim:</label>
-        <input type="text" id="dim" class="input-number" min="0" type="number" name="dim">
-        <label for="size">size:</label>
-        <input type="text" id="size" class="input-number" min="0" type="number" name="size">
-        <label for="max">max:</label>
-        <input type="text" id="max" class="input-number" min="0" type="number" name="max">
+        <div class="btn-container">
+          <button id="newgame-btn" class="btn">new game</button>
+          <button id="settings" class="btn">set</button>
+        </div>
+        <div class="settings-drawer open">
+          <div class="dim input-range-wrapper">
+            <label for="dim">colors:<span></span></label>
+            <input type="range" class="input-range" min="0" max="10" type="number" name="dim">
+          </div>
+          <div class="size input-range-wrapper">
+            <label for="size">size:<span></span></label>
+            <input type="range" class="input-range" min="0" max="10"  type="number" name="size">
+          </div>
+          <div class="max input-range-wrapper">
+            <label id="max-label" for="max">attempts:<span></span></label>
+            <input type="range" id="max" class="input-range" min="0" max="10" type="number" name="max">
+          </div>
+        </div>
       </div>
       <div id="game-board" class="main-container">
         <div id="answer-col"></div>

@@ -1,4 +1,4 @@
-import { addCirclesToContainer, randomColor, showKeyPattern } from "./_helper.js";
+import { addCirclesToContainer, randomColor, showKeyPattern } from "./helper.js";
 
 const clearGameBoard = () => {
   const body = document.querySelector("body");

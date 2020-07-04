@@ -1,0 +1,312 @@
+.game-board-container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body {
+  font-family: Consolas, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background-color: #f79071;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: 0.3s all ease-in;
+  transition: 0.3s all ease-in;
+}
+
+.login-container form {
+  margin-top: 4rem;
+  background-color: #fa744f;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login-container form label {
+  margin-top: 1rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.login-container form .input-number {
+  width: 15rem;
+}
+
+.btn {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  margin: 1rem;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+  color: #171b27;
+}
+
+.btn:hover {
+  background: #c7c4eb;
+  color: black;
+}
+
+.btn:disabled {
+  background: #c7c4eb;
+  color: #5b5b5b;
+  cursor: auto;
+}
+
+.btn img {
+  height: 1rem;
+  width: 1rem;
+}
+
+.circle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  background: #006975;
+  border-radius: 15rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.5rem;
+  font-weight: bold;
+  color: #024249;
+  font-size: 1.6rem;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+
+.game-settings {
+  background: #fa744f;
+  border-radius: 1rem;
+  padding: 0.2rem 0.5rem;
+  margin: 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.game-settings .btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.game-settings .settings-drawer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  height: 0;
+}
+
+.game-settings .settings-drawer.open {
+  height: 8rem;
+}
+
+.game-settings .input-range-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.game-settings .input-range {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.game-settings .input-range:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.input-number {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.4rem;
+  width: 4rem;
+}
+
+.main-container {
+  background: #16817a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 1rem;
+  -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+          box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+#color-palete {
+  margin-top: 2rem;
+  max-width: 80vw;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#color-palete > * {
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.divider {
+  border: 0.5px solid #024249;
+  background: #024249;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+#game-board {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#game-board #answer-col {
+  height: 100%;
+  width: auto;
+  margin: 1rem;
+}
+
+#game-board #answer-col .circle-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#game-board #answer-col .circle-container > * {
+  border: 1.5px #006975 solid;
+}
+
+#game-board #answer-col .guess-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#game-board #answer-col .guess-container .hint-container {
+  margin: 0.5rem 0.2rem;
+  width: 3rem;
+  height: 3.5rem;
+  background: #f79071;
+  border-radius: 0.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#game-board #answer-col .guess-container .hint-container .circle {
+  background: #fa744f;
+  width: 0.8rem;
+  margin: 0.2rem;
+  height: 0.8rem;
+}
+
+#game-board #answer-col .guess-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+/*# sourceMappingURL=style.css.map */

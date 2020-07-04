@@ -8,9 +8,9 @@ window.addEventListener("DOMContentLoaded", () => {
   let secretCode = [];
 
   let gameSettings = {
-    size: 5,
-    max: 2,
-    dim: 3
+    size: 4,
+    max: 4,
+    dim: 5
   };
 
   let gameVariables = {

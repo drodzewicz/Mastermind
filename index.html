@@ -12,27 +12,32 @@
       <div class="game-settings">
         <div class="btn-container">
           <button id="newgame-btn" class="btn">new game</button>
-          <button id="settings" class="btn">set</button>
+          <button id="settings" class="btn">
+            <img src="./images/adjust.png" alt="adjust">
+          </button>
+          <button id="delete-btn" class="btn">
+            <img src="./images/backspace.png" alt="backspace">
+          </button>
+          
         </div>
-        <div class="settings-drawer open">
+        <div class="settings-drawer">
           <div class="dim input-range-wrapper">
             <label for="dim">colors:<span></span></label>
-            <input type="range" class="input-range" min="0" max="10" type="number" name="dim">
+            <input type="range" class="input-range" min="1" max="15" type="number" name="dim">
           </div>
           <div class="size input-range-wrapper">
             <label for="size">size:<span></span></label>
-            <input type="range" class="input-range" min="0" max="10"  type="number" name="size">
+            <input type="range" class="input-range" min="1" max="10"  type="number" name="size">
           </div>
           <div class="max input-range-wrapper">
             <label id="max-label" for="max">attempts:<span></span></label>
-            <input type="range" id="max" class="input-range" min="0" max="10" type="number" name="max">
+            <input type="range" id="max" class="input-range" min="1" max="20" type="number" name="max">
           </div>
         </div>
       </div>
       <div id="game-board" class="main-container">
         <div id="answer-col"></div>
       </div>
-      <button id="delete-btn" class="btn">delete</button>
       <div id="color-palete" class="main-container"></div>
     </div>
 </body>

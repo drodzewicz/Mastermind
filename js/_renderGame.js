@@ -11,6 +11,8 @@ const clearGameBoard = () => {
 }
 const renderGameBoard = (gameConfig, pickColorFun) => {
   clearGameBoard();
+  const gameTitle = document.querySelector("#game-title");
+  gameTitle.textContent = "Mastermind";
   const answerColumn = document.querySelector("#answer-col");
   const colorPalete = document.querySelector("#color-palete");
 
@@ -36,7 +38,7 @@ const renderGameBoard = (gameConfig, pickColorFun) => {
     const hintContainer = document.createElement("div");
     hintContainer.classList.add("hint-container");
     // adjusting dynamic size for auto grid to wrap
-    hintContainer.style.width = `${gameConfig.size * 0.7}rem`
+    hintContainer.style.width = `${gameConfig.size * 0.76}rem`
     addCirclesToContainer(hintContainer, gameConfig.size);
 
     // add both to guess container

@@ -106,9 +106,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
   const createNewGame = () => {
-    // inputSettings.forEach(input => {
-    //   gameSettings[`${input.name}`] = Number(input.value);
-    // });
+
     inputRangeSettings.forEach(input => {
       const inputRange = input.querySelector("input");
       gameSettings[`${inputRange.name}`] = Number(inputRange.value);
@@ -116,7 +114,6 @@ window.addEventListener("DOMContentLoaded", () => {
     renderGameBoard(gameSettings, pickAColor);
     setNewGameValues();
     secretCode = generateRandomPattern(gameSettings.size, gameSettings.dim);
-    // console.log(secretCode);
   }
 
   // NEW GAME BUTTON
@@ -138,12 +135,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
   settingsButton.addEventListener("click", toggleSettingsOpen);
-
-  // // INPUT SETTINGS
-  // const inputSettings = document.querySelectorAll(".input-number");
-  // inputSettings.forEach(input => {
-  //   input.value = gameSettings[`${input.name}`];
-  // });
 
   // INPUT RANGE SETTINGS
   const inputRangeSettings = document.querySelectorAll(".input-range-wrapper");
